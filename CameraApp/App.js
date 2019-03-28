@@ -7,7 +7,14 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert
+} from 'react-native';
 import Camera from "react-native-camera";
 
 const instructions = Platform.select({
@@ -26,8 +33,46 @@ export default class App extends Component<Props> {
     };
   }
 
+  takePicture() {
+    const options = {};
+    this.camera
+      .capture({ metadata: options })
+      .then(data => {
+        console.log(data);
+        this.setState({ openCamera: false, photoPath: data.path.replace("file://", "") });
+        Alert.alert("Photo saved!");
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
-    return (<View><Text>Dummy code</Text></View>);
+    return (
+      <View style={styles.container}>
+        {this.state.openCamera
+          ? <Camera
+              ref={cam => {
+                this.camera = cam;
+              }}
+              style={styles.preview}
+              captureTarget={Camera.constants.CaptureTarget.temp}
+              aspect={Camera.constants.Aspect.fill}
+            >
+              <Text
+                style={styles.capture}
+                onPress={this.takePicture.bind(this)}
+              >
+                [Take photo]
+              </Text>
+            </Camera>
+          : <View>
+            <Button
+              title="Open the camera!"
+              onPress={() => this.setState({ openCamera: true })}
+            />
+          </View>
+          }
+      </View>
+    );
   }
 }
 
