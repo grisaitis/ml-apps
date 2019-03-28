@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Camera from "react-native-camera";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,14 +19,15 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      openCamera: false,
+    };
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+    return (<View><Text>Dummy code</Text></View>);
   }
 }
 
@@ -46,4 +48,16 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  preview: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  capture: {
+    backgroundColor: "#fff",
+    borderRadius: 5,
+    color: "#000",
+    padding: 10,
+    margin: 40
+  }
 });
