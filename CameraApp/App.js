@@ -13,9 +13,11 @@ import {
   Text,
   View,
   Button,
-  Alert
+  Alert,
+  TouchableOpacity
 } from 'react-native';
-import Camera from "react-native-camera";
+import RNCamera from "react-native-camera";
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -34,36 +36,31 @@ export default class App extends Component<Props> {
   }
 
   takePicture() {
-    const options = {};
-    this.camera
-      .capture({ metadata: options })
-      .then(data => {
-        console.log(data);
-        this.setState({ openCamera: false, photoPath: data.path.replace("file://", "") });
-        Alert.alert("Photo saved!");
-      })
-      .catch(err => console.error(err));
-  }
+    try {
+      this.setState({ openCamera: false, photoPath: data.path.replace("file://", "") });
+      const data = this.camera.takePicture();
+      console.log('Path to image: ' + data.uri);
+    } catch (err) {
+      // console.log('err: ', err);
+    }
+  };
 
   render() {
     return (
       <View style={styles.container}>
         {this.state.openCamera
-          ? <Camera
-              ref={cam => {
-                this.camera = cam;
-              }}
-              style={styles.preview}
-              captureTarget={Camera.constants.CaptureTarget.temp}
-              aspect={Camera.constants.Aspect.fill}
-            >
-              <Text
-                style={styles.capture}
-                onPress={this.takePicture.bind(this)}
-              >
-                [Take photo]
-              </Text>
-            </Camera>
+          ? <RNCamera
+            ref={cam => {
+              this.camera = cam;
+            }}
+            style={styles.preview}
+          >
+            <View>
+              <TouchableOpacity onPress={this.takePicture}>
+                <Text>Take Photo</Text>
+              </TouchableOpacity>
+            </View>
+          </RNCamera>
           : <View>
             <Button
               title="Open the camera!"
