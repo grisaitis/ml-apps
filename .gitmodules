@@ -1,0 +1,4 @@
+[submodule "react-native-camera"]
+	path = react-native-camera
+	url = https://github.com/react-native-community/react-native-camera.git
+	branch = master
