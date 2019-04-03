@@ -5,11 +5,9 @@ import {
   Text,
   View,
   TouchableOpacity,
-  // Slider,
   TouchableWithoutFeedback,
   Dimensions,
 } from 'react-native';
-// import { Slider } from 'react-native-slider';
 import Slider from '@react-native-community/slider';
 // eslint-disable-next-line import/no-unresolved
 import { RNCamera } from 'react-native-camera';
