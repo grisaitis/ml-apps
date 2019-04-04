@@ -14,9 +14,10 @@ import {
   View,
   Button,
   Alert,
-  TouchableOpacity
+  TouchableOpacity,
+  CameraRoll
 } from 'react-native';
-import RNCamera from "react-native-camera";
+import { RNCamera } from 'react-native-camera';
 
 
 type Props = {};
@@ -28,13 +29,11 @@ export default class App extends Component<Props> {
     };
   }
 
-  takePicture() {
-    try {
-      this.setState({ openCamera: false, photoPath: data.path.replace("file://", "") });
-      const data = this.camera.takePicture();
-      console.log('Path to image: ' + data.uri);
-    } catch (err) {
-      console.log('err: ', err);
+  takePicture = async function() {
+    if (this.camera) {
+      const data = await this.camera.takePictureAsync();
+      console.warn('takePicture ', data);
+      console.log(data.uri);
     }
   };
 
@@ -49,7 +48,10 @@ export default class App extends Component<Props> {
             style={styles.preview}
           >
             <View>
-              <TouchableOpacity onPress={this.takePicture}>
+              <TouchableOpacity
+                onPress={this.takePicture.bind(this)}
+                style={styles.picButton}
+              >
                 <Text>Take Photo</Text>
               </TouchableOpacity>
             </View>
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -79,15 +80,11 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   preview: {
-    flex: 1,
+    flex: 2,
     justifyContent: "flex-end",
     alignItems: "center"
   },
-  capture: {
-    backgroundColor: "#fff",
-    borderRadius: 5,
-    color: "#000",
-    padding: 10,
-    margin: 40
-  }
+  picButton: {
+    backgroundColor: 'darkseagreen',
+  },
 });
