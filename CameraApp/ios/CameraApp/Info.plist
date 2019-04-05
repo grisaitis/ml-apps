@@ -37,8 +37,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to recognize the phone's surroundings</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app records video, sometimes</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app saves content to your photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app saves content to your photo library</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,8 +59,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>This app uses the camera to recognize the phone&apos;s surroundings</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
