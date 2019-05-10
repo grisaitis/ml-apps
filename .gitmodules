@@ -2,3 +2,7 @@
 	path = react-native-camera
 	url = https://github.com/react-native-community/react-native-camera.git
 	branch = master
+[submodule "AveragePixel/react-native-camera-utils"]
+	path = AveragePixel/react-native-camera-utils
+	url = https://github.com/grisaitis/react-native-camera-utils
+	branch = master
