@@ -7,7 +7,16 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {NativeModules, Platform, StyleSheet, Text, View} from 'react-native';
+
+const { RNAveragePixelLib } = NativeModules;
+
+console.log(3);
+console.log(RNAveragePixelLib);
+console.log(4);
+console.log(RNAveragePixelLib.addEvent("william", "orlando"));
+console.log(5);
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -19,6 +28,7 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+    // console.log("inside App.render()");
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
