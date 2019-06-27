@@ -1,13 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {NativeModules, Platform, StyleSheet, Text, View} from 'react-native';
+import {NativeModules, StyleSheet, Text, View} from 'react-native';
 
 const { RNAveragePixelLib } = NativeModules;
 
@@ -17,23 +9,12 @@ console.log(4);
 console.log(RNAveragePixelLib.addEvent("william", "orlando"));
 console.log(5);
 
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
-    // console.log("inside App.render()");
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text>The average pixel value of the camera is: {this.averagePixelValue}</Text>
       </View>
     );
   }
@@ -50,10 +31,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
