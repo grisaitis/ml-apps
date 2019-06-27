@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NativeModules, StyleSheet, Text, View} from 'react-native';
+import {RNCamera} from 'react-native-camera';
 
 const { RNAveragePixelLib } = NativeModules;
 
@@ -15,6 +16,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text>The average pixel value of the camera is: {this.averagePixelValue}</Text>
+        <RNCamera/>
       </View>
     );
   }
@@ -23,11 +25,13 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 10,
+    backgroundColor: '#AAA',
+  },
+  welcome: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
