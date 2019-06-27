@@ -3,10 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
-  Slider,
-  TouchableWithoutFeedback,
-  Dimensions,
   NativeModules,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
