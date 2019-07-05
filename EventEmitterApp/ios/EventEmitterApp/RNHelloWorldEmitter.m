@@ -6,6 +6,7 @@
 //
 
 #import "RNHelloWorldEmitter.h"
+#import <React/RCTLog.h>
 
 @implementation RNHelloWorldEmitter
 {
@@ -17,13 +18,14 @@ RCT_EXPORT_MODULE();
 - (NSArray<NSString *> *)supportedEvents
 {
 //  return @[@"EventReminder"];
-    return @[@""];
+    return @[@"hello-world"];
 }
 
 // Will be called when this module's first listener is added.
 - (void)startObserving
 {
   _hasListeners = YES;
+  [self helloWorldEvent];  // invoke the event
 }
 
 // Will be called when this module's last listener is removed, or on dealloc.
@@ -34,7 +36,8 @@ RCT_EXPORT_MODULE();
 
 - (void)helloWorldEvent
 {
-  NSString *message = @"Hello, world!";
+  RCTLogInfo(@"Inside helloWorldEvent()");
+  NSString *message = @"Hello, world! From the RNHelloWorldEmitter";
   if (_hasListeners) {
 //    [self sendEventWithName:@"hello-world" body:@{@"message": message}];
     [self sendEventWithName:@"hello-world" body:@{@"message": message}];

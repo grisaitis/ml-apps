@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  NativeEventEmitter,
+  NativeModules,
 } from 'react-native';
 
 import {
@@ -23,6 +25,21 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+console.log("Hellooooo");
+const { RNHelloWorldEmitter } = NativeModules;
+console.log(RNHelloWorldEmitter);
+const eventEmitter = new NativeEventEmitter(RNHelloWorldEmitter);
+console.log(eventEmitter);
+const onSessionConnect = (event) => {
+  console.log(event);
+}
+const subscription = eventEmitter.addListener('hello-world', onSessionConnect);
+console.log(subscription);
+
+// Don't forget to unsubscribe, typically in `componentWillUnmount`
+// subscription.remove()
+
 
 const App = () => {
   return (
@@ -41,7 +58,7 @@ const App = () => {
                 screen and then come back to see your edits.
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
+            {/* <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
               <Text style={styles.sectionDescription}>
                 <ReloadInstructions />
@@ -59,7 +76,7 @@ const App = () => {
                 Read the docs to discover what to do next:
               </Text>
             </View>
-            <LearnMoreLinks />
+            <LearnMoreLinks /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
