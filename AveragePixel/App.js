@@ -3,17 +3,34 @@ import {
   StyleSheet,
   Text,
   View,
+  NativeEventEmitter,
   NativeModules,
 } from 'react-native';
-import {RNCamera} from 'react-native-camera';
+// import {RNCamera} from 'react-native-camera';
 
-const { RNAveragePixelLib } = NativeModules;
 
-console.log(3);
-console.log(RNAveragePixelLib);
-console.log(4);
-console.log(RNAveragePixelLib.addEvent("william", "orlando"));
-console.log(5);
+const RNAveragePixelEmitter = NativeModules.RNAveragePixelEmitter;
+console.log(RNAveragePixelEmitter);
+const eventEmitter = new NativeEventEmitter(RNAveragePixelEmitter);
+const subscription = eventEmitter.addListener('video-progress', (data) => console.log(data));
+
+
+class AveragePixel extends Component {
+  constructor(props) {
+      console.log("in constructor()");
+      super(props);
+  }
+  componentWillUnmount() {
+      subscription.remove();
+  }
+  render() {
+      console.log(subscription);
+      return (
+          <Text>{subscription}</Text>
+      )
+  }
+}
+
 
 export default class App extends Component {
   render() {
@@ -21,10 +38,11 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text>The average pixel value of the camera is: {this.averagePixelValue}</Text>
-        <RNCamera
+        {/* <RNCamera
           ref={ref => {this.camera = ref;}}
           style={styles.camera}
-        />
+        /> */}
+        <AveragePixel/>
       </View>
     );
   }
