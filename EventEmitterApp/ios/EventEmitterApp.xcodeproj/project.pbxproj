@@ -18,6 +18,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* EventEmitterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EventEmitterAppTests.m */; };
+		3D574A4122CFC16600BF11C3 /* RNHelloWorldEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D574A4022CFC16600BF11C3 /* RNHelloWorldEmitter.m */; };
 		44090FA1FBCDC2D41BF4B17B /* libPods-EventEmitterApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A57E34B4F5582F8A9C03F9 /* libPods-EventEmitterApp.a */; };
 		E55091AAE4FD01F92584C53A /* libPods-EventEmitterApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7E605757D9DBED6D321C63 /* libPods-EventEmitterApp-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,8 @@
 		2D02E47B1E0B4A5D006451C7 /* EventEmitterApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EventEmitterApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* EventEmitterApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventEmitterApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		323C1D8C6B7C93A6B45363EB /* Pods-EventEmitterApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventEmitterApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-EventEmitterApp-tvOS/Pods-EventEmitterApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		3D574A4022CFC16600BF11C3 /* RNHelloWorldEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNHelloWorldEmitter.m; path = EventEmitterApp/RNHelloWorldEmitter.m; sourceTree = "<group>"; };
+		3D574A4222CFC19100BF11C3 /* RNHelloWorldEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNHelloWorldEmitter.h; path = EventEmitterApp/RNHelloWorldEmitter.h; sourceTree = "<group>"; };
 		3D7E605757D9DBED6D321C63 /* libPods-EventEmitterApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventEmitterApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F48138860258BACECCE04ED /* libPods-EventEmitterApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventEmitterApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4192F5C27D41FA5E8175088A /* Pods-EventEmitterApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventEmitterApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EventEmitterApp-tvOSTests/Pods-EventEmitterApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				3D574A4222CFC19100BF11C3 /* RNHelloWorldEmitter.h */,
+				3D574A4022CFC16600BF11C3 /* RNHelloWorldEmitter.m */,
 			);
 			name = EventEmitterApp;
 			sourceTree = "<group>";
@@ -194,7 +199,6 @@
 				A4A94B2043C559B5F27380C3 /* Pods-EventEmitterAppTests.debug.xcconfig */,
 				AC3B0B6FD092BAC20851ED53 /* Pods-EventEmitterAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +312,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -528,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D574A4122CFC16600BF11C3 /* RNHelloWorldEmitter.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
