@@ -25,7 +25,7 @@ RCT_EXPORT_MODULE();
 - (void)startObserving
 {
   _hasListeners = YES;
-  [self helloWorldEvent];  // invoke the event
+  [self emitHelloWorldEvent];  // invoke the event
 }
 
 // Will be called when this module's last listener is removed, or on dealloc.
@@ -34,9 +34,9 @@ RCT_EXPORT_MODULE();
   _hasListeners = NO;
 }
 
-- (void)helloWorldEvent
+- (void)emitHelloWorldEvent
 {
-  RCTLogInfo(@"Inside helloWorldEvent()");
+  RCTLogInfo(@"Emitting an event in emitHelloWorldEvent()");
   NSString *message = @"Hello, world! From the RNHelloWorldEmitter";
   if (_hasListeners) {
 //    [self sendEventWithName:@"hello-world" body:@{@"message": message}];
@@ -44,10 +44,11 @@ RCT_EXPORT_MODULE();
   }
 }
 
-//- (void)calendarEventReminderReceived:(NSNotification *)notification
-//{
-//  NSString *eventName = notification.userInfo[@"name"];
-//  [self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
-//}
+RCT_EXPORT_METHOD(getEvent) 
+{
+  // Wrap emitHelloWorldEvent() in an exposed method
+  RCTLogInfo(@"Getting request for event in getEvent()");
+  [self emitHelloWorldEvent];  // invoke the event
+}
 
 @end

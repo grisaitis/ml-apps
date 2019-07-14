@@ -8,6 +8,7 @@
 
 import React, {Fragment} from 'react';
 import {
+  Button,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -26,22 +27,32 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-console.log("Hellooooo");
+// console.log("Hellooooo");
 const { RNHelloWorldEmitter } = NativeModules;
-console.log(RNHelloWorldEmitter);
+// console.log(RNHelloWorldEmitter);
 const eventEmitter = new NativeEventEmitter(RNHelloWorldEmitter);
-console.log(eventEmitter);
-const onSessionConnect = (event) => {
+// console.log(eventEmitter);
+const onEventReceived = (event) => {
+  console.log("Receiving an event in onEventReceived() (callback for the listener)");
   console.log(event);
 }
-const subscription = eventEmitter.addListener('hello-world', onSessionConnect);
-console.log(subscription);
+const subscription = eventEmitter.addListener('hello-world', onEventReceived);
+// console.log(subscription);
+
+console.log("Asking for event");
+console.log(RNHelloWorldEmitter);
+console.log(RNHelloWorldEmitter.getEvent);
+RNHelloWorldEmitter.getEvent();
+
+// while(true) { RNHelloWorldEmitter.getEvent() }  // prevents app from loading!!!
+
 
 // Don't forget to unsubscribe, typically in `componentWillUnmount`
 // subscription.remove()
 
 
 const App = () => {
+  RNHelloWorldEmitter.getEvent();
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
@@ -58,6 +69,12 @@ const App = () => {
                 screen and then come back to see your edits.
               </Text>
             </View>
+            <Button
+              onPress={(buttonStuff) => {console.log(buttonStuff); RNHelloWorldEmitter.getEvent()}}
+              title="Get event"
+              color="#841584"
+              // accessibilityLabel="Learn more about this purple button"
+            />
             {/* <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
               <Text style={styles.sectionDescription}>
