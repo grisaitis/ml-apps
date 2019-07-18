@@ -8,6 +8,7 @@
 
 import React, {Fragment} from 'react';
 import {
+  Button,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -60,6 +61,13 @@ const App = () => {
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
               </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Button
+                onPress={(buttonStuff) => {console.log(buttonStuff); RNCameraData.getEvent()}}
+                title="Get event"
+                color="#841584"
+              />
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
