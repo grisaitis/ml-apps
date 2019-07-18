@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  NativeModules,
+  NativeEventEmitter,
 } from 'react-native';
 
 import {
@@ -23,6 +25,19 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+const { RNCameraData } = NativeModules;
+const eventEmitter = new NativeEventEmitter(RNCameraData);
+const onEventReceived = (event) => {
+  console.log("Receiving an event");
+  console.log(event);
+}
+const subscription = eventEmitter.addListener('camera-data', onEventReceived);
+console.log("Asking for event");
+console.log(RNCameraData);
+console.log(RNCameraData.getEvent);
+RNCameraData.getEvent();
+
 
 const App = () => {
   return (

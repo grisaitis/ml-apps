@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* CameraDataEmitterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CameraDataEmitterAppTests.m */; };
+		3D6C16E722E0B71200DDD5D8 /* RNCameraData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C16E622E0B71200DDD5D8 /* RNCameraData.m */; };
 		41C8A39183C720ABD1F90D0C /* libPods-CameraDataEmitterAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 507202D7FFB239D2293E0090 /* libPods-CameraDataEmitterAppTests.a */; };
 		478AC7F6985A30E690C9F285 /* libPods-CameraDataEmitterApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0B25815F2182D809B97BD0 /* libPods-CameraDataEmitterApp-tvOS.a */; };
 		B03D7635FF788C6C16F4831D /* libPods-CameraDataEmitterApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB7B31CCAE2E79481D7D0E /* libPods-CameraDataEmitterApp-tvOSTests.a */; };
@@ -56,6 +57,8 @@
 		2C0B25815F2182D809B97BD0 /* libPods-CameraDataEmitterApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CameraDataEmitterApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* CameraDataEmitterApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CameraDataEmitterApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CameraDataEmitterApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CameraDataEmitterApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D6C16E522E0B6BE00DDD5D8 /* RNCameraData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNCameraData.h; path = CameraDataEmitterApp/RNCameraData.h; sourceTree = "<group>"; };
+		3D6C16E622E0B71200DDD5D8 /* RNCameraData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNCameraData.m; path = CameraDataEmitterApp/RNCameraData.m; sourceTree = "<group>"; };
 		4A184B304555C0CE9B2CB758 /* Pods-CameraDataEmitterApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraDataEmitterApp.debug.xcconfig"; path = "Target Support Files/Pods-CameraDataEmitterApp/Pods-CameraDataEmitterApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4B194D094D320249829D29B7 /* Pods-CameraDataEmitterAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraDataEmitterAppTests.release.xcconfig"; path = "Target Support Files/Pods-CameraDataEmitterAppTests/Pods-CameraDataEmitterAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B91A356F7F8D804FB289218 /* Pods-CameraDataEmitterApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraDataEmitterApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-CameraDataEmitterApp-tvOSTests/Pods-CameraDataEmitterApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				3D6C16E522E0B6BE00DDD5D8 /* RNCameraData.h */,
+				3D6C16E622E0B71200DDD5D8 /* RNCameraData.m */,
 			);
 			name = CameraDataEmitterApp;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6C16E722E0B71200DDD5D8 /* RNCameraData.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
