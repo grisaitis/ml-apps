@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {OnnxDemo} from './components/onnx_demo.js';
+
 const App = () => {
   return (
     <Fragment>
@@ -39,6 +41,13 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Haha!</Text>
+              <Text style={styles.sectionDescription}>
+                Let's try to use onnx.js... Can we add two <Text style={styles.highlight}>tensors??!??</Text>
+              </Text>
+              <OnnxDemo/>
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
