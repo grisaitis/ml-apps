@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  Alert,
   Button,
   Text,
   View,
@@ -26,25 +27,50 @@ export class OnnxDemo extends React.Component {
     console.log(`Tensor has size ${x.data.length} with all elements being ${x.data[0]}`);
   }
 
-  async runExample(stuff) {
+  async performAddition(stuff) {
+    console.log('In OnnxDemo.runExample');
+    // console.log(WebAssembly);  // Not available!
     const session = new InferenceSession({backendHint: 'cpu'});
     console.log(session);
 
-    // await session.loadModel("./add.onnx");
-    await session.loadModel("https://raw.githubusercontent.com/microsoft/onnxjs/6ccc22568f7b9e712cf4bb803cf4b201f6314d3b/examples/node/add/add.onnx")
-
-    // const x = new Float32Array(3 * 4 * 5).fill(1);
-    // // console.log(x);
-    // // console.log(x.data);
-    // const y = new Float32Array(3 * 4 * 5).fill(2);
-    // const tensorX = new Tensor(x, 'float32', [3, 4, 5]);
-    // const tensorY = new Tensor(y, 'float32', [3, 4, 5]);
-    // console.log(x);
-    // console.log(tensorX);
-    // console.log(tensorX.data);
-    // const outputMap = await session.run([tensorX, tensorY]);
-    // console.log(outputMap);
+    session.loadModel("add.onnx").then(() => {
+      // fails because FileReader.readAsArrayBuffer is not implemented
+      console.log("Loaded model...");
+      console.log(session);
+      const x = new Float32Array(3 * 4 * 5).fill(1);
+      // console.log(x);
+      // console.log(x.data);
+      const y = new Float32Array(3 * 4 * 5).fill(2);
+      const tensorX = new Tensor(x, 'float32', [3, 4, 5]);
+      const tensorY = new Tensor(y, 'float32', [3, 4, 5]);
+      console.log(x);
+      console.log(tensorX);
+      console.log(tensorX.data);
+      session.run([tensorX, tensorY]).then(output => {
+        const outputTensor = output.values().next().value;
+        console.log(`model output tensor: ${outputTensor.data}.`);
+      })
+    })
   }
+
+  async tryImportingWebAssembly(buttonStuff) {
+    console.log(WebAssembly);
+  }
+
+  async tryWithoutModel(buttonStuff) {
+    console.log('In OnnxDemo.runExample');
+    const session = new InferenceSession({backendHint: 'cpu'});
+    console.log(session);
+
+    const x = new Float32Array(3 * 4 * 5).fill(1);
+    const tensorX = new Tensor(x, 'float32', [3, 4, 5]);
+    session.run([tensorX]).then(output => {
+      // this fails, because the session doesn't have a model
+      const outputTensor = output.values().next().value;
+      console.log(`model output tensor: ${outputTensor.data}.`);
+    })
+  }
+  
 
   render() {
     console.log("Hello from OnnxDemo");
@@ -55,8 +81,20 @@ export class OnnxDemo extends React.Component {
       <View>
         <Text>Hello from OnnxDemo!</Text>
         <Button
-          onPress={this.runExample}
-          title="Run onnx.js example"
+          onPress={this.performAddition}
+          title="Try addition with onnx.js"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+          onPress={this.tryWithoutModel}
+          title="Try addition without loading a model"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+          onPress={this.tryImportingWebAssembly}
+          title="Try importing WebAssembly"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
         />
