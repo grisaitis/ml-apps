@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* OnnxJsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OnnxJsAppTests.m */; };
+		3D872E0E22F4F4B000BFA0FD /* add.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 3D872E0D22F4F4B000BFA0FD /* add.onnx */; };
 		82E00993229F88FED73D2A33 /* libPods-OnnxJsApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4F12E67FF2EE22360EC12F /* libPods-OnnxJsApp-tvOS.a */; };
 		A1A34BDBFE1E0FD7829508E6 /* libPods-OnnxJsApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1127AAB478A404D2F8A5BF /* libPods-OnnxJsApp-tvOSTests.a */; };
 		C21F27A2F822C370513E7B28 /* libPods-OnnxJsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3597F2F29774F5C88020FA /* libPods-OnnxJsApp.a */; };
@@ -59,6 +60,7 @@
 		2D02E47B1E0B4A5D006451C7 /* OnnxJsApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnnxJsApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* OnnxJsApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnnxJsApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D1127AAB478A404D2F8A5BF /* libPods-OnnxJsApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnnxJsApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D872E0D22F4F4B000BFA0FD /* add.onnx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = add.onnx; path = ../models/add.onnx; sourceTree = "<group>"; };
 		8F4BBD97DDB6CFF9C3BC158C /* Pods-OnnxJsApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnnxJsApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-OnnxJsApp-tvOS/Pods-OnnxJsApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B8E0443C56BD9E6FA2E2670B /* Pods-OnnxJsApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnnxJsApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-OnnxJsApp-tvOSTests/Pods-OnnxJsApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB4F12E67FF2EE22360EC12F /* libPods-OnnxJsApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnnxJsApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3D872E0D22F4F4B000BFA0FD /* add.onnx */,
 				13B07FAE1A68108700A75B9A /* OnnxJsApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* OnnxJsAppTests */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3D872E0E22F4F4B000BFA0FD /* add.onnx in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
