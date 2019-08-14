@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment, Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,6 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { WebView } from 'react-native-webview';
+
+
 const App = () => {
   return (
     <Fragment>
@@ -33,38 +36,15 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+          <View style={{ height: 700 }}>
+            <WebView
+              automaticallyAdjustContentInsets={false}
+              // source={{uri: 'https://webglreport.com/'}}
+              // source={{uri: 'https://html5test.com/'}}
+              // source={{uri: 'https://www.kirupa.com/html5/accessing_your_webcam_in_html5.htm'}}
+              source={{uri: 'https://marcusbelcher.github.io/wasm-asm-camera-webgl-test/index.html'}}
+              // source={{uri: 'https://magnum.graphics/showcase/picking/'}}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
