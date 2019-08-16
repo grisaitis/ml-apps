@@ -98,6 +98,7 @@ export class OnnxDemo extends React.Component {
 
   async tryImportingWebAssembly(buttonStuff) {
     console.log(WebAssembly);
+    console.log(WebAssembly.Module);
   }
 
   async tryWithoutModel(buttonStuff) {
@@ -114,6 +115,12 @@ export class OnnxDemo extends React.Component {
     })
   }
   
+  async loadAddOnnxURI(buttonStuff) {
+    // https://github.com/facebook/react-native/issues/505#issuecomment-191806405
+    var resolveAssetSource = require('resolveAssetSource');
+    var source = resolveAssetSource(require('add.onnx'));
+    console.log(source.uri);
+  }
 
   render() {
     console.log("Hello from OnnxDemo");
@@ -138,6 +145,12 @@ export class OnnxDemo extends React.Component {
         <Button
           onPress={this.tryImportingWebAssembly}
           title="Try importing WebAssembly"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+          onPress={this.loadAddOnnxURI}
+          title="Get URI of add.onnx"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
         />
