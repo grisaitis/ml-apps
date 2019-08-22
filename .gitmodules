@@ -6,6 +6,3 @@
 	path = react-native-apps/react-native-camera-utils
 	url = https://github.com/grisaitis/react-native-camera-utils
 	branch = master
-[submodule "web-apps/your-first-pwapp"]
-	path = web-apps/your-first-pwapp
-	url = https://github.com/googlecodelabs/your-first-pwapp
