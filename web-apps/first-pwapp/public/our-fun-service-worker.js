@@ -31,7 +31,7 @@ self.addEventListener('install', (evt) => {
   // CODELAB: Precache static resources here.
   evt.waitUntil(
     // to do: what are the limitations of caches?
-    // can this cache javascript libraries? wasm modules?
+    // can this cache javascript libraries? wasm modules? entire app bundle?
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened a cache and storing stuff to it!!! uhhh.. wheeee!!!!");
       return cache.addAll(FILES_TO_CACHE)
@@ -61,13 +61,12 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
   console.log('[ServiceWorker] Fetch', evt.request.url);
   // CODELAB: Add fetch event handler here.
-  if (evt.request.mode !== 'navigation') {
+  if (evt.request.mode !== 'navigate') {
     console.log("peace out, don't care. navigate? more like navi-nope!");
     return;  // ciaooo!!!
   }
   evt.respondWith(
     fetch(evt.request)
-    .then(() => {console.log("whee! request succeeded")})
     .catch(() => {
       console.log("oh snap, request failed. does we got cash?");
       return caches.open(CACHE_NAME).then((cache) => {
@@ -75,5 +74,5 @@ self.addEventListener('fetch', (evt) => {
         return cache.match('offline.html');
       });
     })
-  )
+  );
 });
